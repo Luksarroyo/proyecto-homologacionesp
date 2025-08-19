@@ -47,11 +47,22 @@
             gap: 1rem;
             flex-shrink: 0;
             margin-left: -1rem;
+            background: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 10px;
+            border: 1px solid #e6d7c3;
         }
 
         .logo {
-            height: 70px;
+            height: 80px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+        }
+
+        .logo-fallback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #8b4513;
         }
 
         .brand-name {
@@ -442,7 +453,8 @@
         <div class="header-container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="Tu Homologación" class="logo">
+                    <img src="img/logo.jpg" alt="Tu Homologación" class="logo"
+                        onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;logo-fallback&quot;>Tu Homologación</span>')">
                 </a>
             </div>
             <span class="brand-name">Tu Homologación en España</span>
@@ -558,4 +570,3 @@
 </body>
 
 </html>
-

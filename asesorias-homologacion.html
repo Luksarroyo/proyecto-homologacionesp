@@ -47,11 +47,22 @@
             gap: 1rem;
             flex-shrink: 0;
             margin-left: -1rem;
+            background: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 10px;
+            border: 1px solid #e6d7c3;
         }
 
         .logo {
-            height: 70px;
+            height: 80px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+        }
+
+        .logo-fallback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #8b4513;
         }
 
         .brand-name {
@@ -86,6 +97,134 @@
         }
 
         /* Hero Section */
+        /* Card Asesoría */
+        .service-card-container {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            background: #faf8f3;
+            border: 2px solid #e6d7c3;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .service-card-content {
+            flex: 1;
+        }
+
+        .service-card-image {
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .service-card-image img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+            border: 2px solid #e6d7c3;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(139, 69, 19, 0.15);
+            border-color: #daa520;
+        }
+
+        .service-card h3 {
+            color: #8b4513;
+            font-size: 1.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
+        .service-card h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin: 0.6rem auto 0;
+            border-radius: 2px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .service-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: #a0522d;
+            line-height: 1.6;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Banner image */
+        .banner-image {
+            max-width: 1200px;
+            margin: 1rem auto 0;
+            padding: 0 2rem;
+        }
+
+        .banner-image img {
+            display: block;
+            width: auto;
+            /* no escala por encima de su tamaño natural */
+            max-width: 75%;
+            /* ligeramente más pequeña */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+            border: 2px solid #e6d7c3;
+            margin: 0 auto;
+            opacity: 0.3;
+            filter: grayscale(100%);
+            position: relative;
+            z-index: -1;
+        }
+
         .hero {
             background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
             color: white;
@@ -356,6 +495,16 @@
             .contact-info {
                 align-items: center;
             }
+
+            .service-card {
+                padding: 1.25rem;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-card-image img {
+                max-width: 250px;
+            }
         }
     </style>
 </head>
@@ -366,7 +515,8 @@
         <div class="header-container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="Tu Homologación" class="logo">
+                    <img src="img/logo.jpg" alt="Tu Homologación" class="logo"
+                        onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;logo-fallback&quot;>Tu Homologación</span>')">
                 </a>
             </div>
             <span class="brand-name">Tu Homologación en España</span>
@@ -377,16 +527,41 @@
         </div>
     </header>
 
+
+
     <div class="hero">
         <div class="hero-content">
-            <h1>Asesorías en Homologación</h1>
-            <p>Servicios personalizados para tu proceso de homologación de títulos en España</p>
-            <button class="cta-btn"
-                onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Solicitar
-                Información</button>
+            <h1>¡Haz realidad tu sueño profesional en España!</h1>
+            <p>Estamos contigo en cada paso de tu proceso de homologación. Te brindamos el acompañamiento, la
+                orientación y la información que necesitas para que tu título sea reconocido en España y puedas ejercer
+                la profesión que tanto amas.</p>
+
         </div>
     </div>
 
+
+    <div class="service-card-container">
+        <div class="service-card">
+            <div class="service-card-content">
+                <h3>Asesoría</h3>
+                <ul>
+                    <li>Videollamada con tiempo ilimitado</li>
+                    <li>Revisión de documentación</li>
+                    <li>Elaboración de hoja de ruta</li>
+                    <li>Consulta de todas tus dudas</li>
+                    <li>Tips para evitar equivocaciones al pedir tu documentación</li>
+                </ul>
+                <div style="text-align:center; margin-top:1.5rem; width: 100%;">
+                    <button class="cta-btn"
+                        onclick="window.open('https://wa.me/351931157897?text=Hola,%20me%20interesa%20saber%20más%20sobre%20vuestros%20servicios%20de%20asesoría%20en%20homologación', '_blank')">Solicitar
+                        Información</button>
+                </div>
+            </div>
+            <div class="service-card-image">
+                <img src="img/imgOficina.png" alt="Asesoría">
+            </div>
+        </div>
+    </div>
 
 
     <footer>
@@ -482,4 +657,3 @@
 </body>
 
 </html>
-

@@ -47,11 +47,22 @@
             gap: 1rem;
             flex-shrink: 0;
             margin-left: -1rem;
+            background: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 10px;
+            border: 1px solid #e6d7c3;
         }
 
         .logo {
-            height: 70px;
+            height: 80px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+        }
+
+        .logo-fallback {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #8b4513;
         }
 
         .brand-name {
@@ -124,6 +135,182 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+        }
+
+        /* Carruseles de Ebooks */
+        .ebook-carousels {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .carousel-section {
+            margin-bottom: 4rem;
+        }
+
+        .carousel-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #8b4513;
+            position: relative;
+        }
+
+        .carousel-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            border-radius: 2px;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 1.2s ease-in-out;
+            gap: 0;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 2rem;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+            border: 2px solid #e6d7c3;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .ebook-cover {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .ebook-cover img {
+            width: 280px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            border: 3px solid #e6d7c3;
+        }
+
+        .ebook-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .ebook-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .ebook-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #8b4513;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .ebook-subtitle {
+            font-size: 1.3rem;
+            color: #a0522d;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .ebook-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .ebook-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #8b4513;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+        }
+
+        .carousel-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e6d7c3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #daa520;
+            transform: scale(1.2);
         }
 
         .cta-btn {
@@ -432,6 +619,41 @@
             .contact-info {
                 align-items: center;
             }
+
+            /* Carruseles responsive */
+            .carousel-slide {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+
+            .ebook-cover img {
+                width: 220px;
+                height: 300px;
+            }
+
+            .ebook-title {
+                font-size: 1.8rem;
+            }
+
+            .ebook-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-prev {
+                left: 10px;
+            }
+
+            .carousel-next {
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -442,7 +664,8 @@
         <div class="header-container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="Tu Homologación" class="logo">
+                    <img src="img/logo.jpg" alt="Tu Homologación" class="logo"
+                        onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;logo-fallback&quot;>Tu Homologación</span>')">
                 </a>
             </div>
             <span class="brand-name">Tu Homologación en España</span>
@@ -457,13 +680,52 @@
         <div class="hero-content">
             <h1>Guías de Homologación</h1>
             <p>Ebooks con información, tips y consejos prácticos para tu proceso de homologación</p>
-            <button class="cta-btn"
-                onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Solicitar
-                Información</button>
         </div>
     </div>
 
+    <!-- Carruseles de Ebooks -->
+    <div class="ebook-carousels">
+        <!-- Primer Carrusel: Guía Básica -->
+        <div class="carousel-section">
+            <h2>Obtén tu Guía</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <div class="ebook-cover">
+                            <img src="img/guiaradiologo.jpg" alt="Guía para Radiólogos">
+                            <div class="ebook-badge">Más Vendido</div>
+                        </div>
+                        <div class="ebook-info">
+                            <h3 class="ebook-title">Guía Completa para Radiólogos</h3>
+                            <p class="ebook-subtitle">La guía práctica para homologar tu título en España</p>
+                            <a href="https://pay.hotmart.com/W100141910M?off=pt1secw3&hotfeature=51&bid=1755624854297&fbclid=PAQ0xDSwMRlPtleHRuA2FlbQIxMQABp5EyKDO0MeWTEXIH86bLKJSro1wwv3DnjD1amKRfK6RvzynGLWlRPUDSgQcm_aem_Kndhj-d2CZnowlZ_7yAFVQ"
+                                class="ebook-cta" target="_blank" rel="noopener noreferrer">Comprar Guía</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="ebook-cover">
+                            <img src="img/logo.jpg" alt="Guía para Enfermeros">
+                            <div class="ebook-badge">Próximamente</div>
+                        </div>
+                        <div class="ebook-info">
+                            <h3 class="ebook-title">Guía Completa para Enfermeros</h3>
+                            <p class="ebook-subtitle">Todo lo que necesitas para dar el salto profesional</p>
+                            <a href="#" class="ebook-cta">Próximamente a la venta</a>
+                        </div>
+                    </div>
 
+                </div>
+                <button class="carousel-nav carousel-prev" onclick="moveCarousel(0, -1)">‹</button>
+                <button class="carousel-nav carousel-next" onclick="moveCarousel(0, 1)">›</button>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" onclick="goToSlide(0, 0)"></span>
+                    <span class="carousel-dot" onclick="goToSlide(0, 1)"></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -554,8 +816,56 @@
                 }
             });
         });
+
+        // Funcionalidad de los carruseles
+        const carousels = [
+            { currentSlide: 0, totalSlides: 2 }
+        ];
+
+        function moveCarousel(carouselIndex, direction) {
+            const carousel = carousels[carouselIndex];
+            const track = document.querySelectorAll('.carousel-track')[carouselIndex];
+            const dots = document.querySelectorAll('.carousel-section')[carouselIndex].querySelectorAll('.carousel-dot');
+
+            carousel.currentSlide += direction;
+
+            if (carousel.currentSlide >= carousel.totalSlides) {
+                carousel.currentSlide = 0;
+            } else if (carousel.currentSlide < 0) {
+                carousel.currentSlide = carousel.totalSlides - 1;
+            }
+
+            const translateX = -carousel.currentSlide * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+
+            // Actualizar dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carousel.currentSlide);
+            });
+        }
+
+        function goToSlide(carouselIndex, slideIndex) {
+            const carousel = carousels[carouselIndex];
+            const track = document.querySelectorAll('.carousel-track')[carouselIndex];
+            const dots = document.querySelectorAll('.carousel-section')[carouselIndex].querySelectorAll('.carousel-dot');
+
+            carousel.currentSlide = slideIndex;
+            const translateX = -carousel.currentSlide * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+
+            // Actualizar dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carousel.currentSlide);
+            });
+        }
+
+        // Auto-play para los carruseles
+        setInterval(() => {
+            carousels.forEach((carousel, index) => {
+                moveCarousel(index, 1);
+            });
+        }, 8000);
     </script>
 </body>
 
 </html>
-
