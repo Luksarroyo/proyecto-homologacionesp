@@ -183,6 +183,90 @@
             border-radius: 2px;
         }
 
+        /* Cards */
+        .card {
+            background: #faf8f3;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+            border: 2px solid #e6d7c3;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+        }
+
+        .card h2 {
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            border-radius: 2px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #daa520;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta button {
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .cta button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, #b8860b 0%, #daa520 100%);
+        }
+
         /* Contact Form */
         .contact-container {
             background: #faf8f3;
@@ -467,13 +551,38 @@
 
     <div class="hero">
         <div class="hero-content">
-            <h1>Impulsa tu Carrera en España</h1>
-            <p>Ayuda con currículum, orientación laboral y gestión de colegiaciones</p>
-            <button class="cta-btn"
-                onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Solicitar
-                Información</button>
+            <h1>Asesoría en Búsqueda de Trabajo</h1>
+            <p>¿Eres profesional de la salud y buscas trabajo en España o en el extranjero?<br>
+                Te acompañamos en cada paso: desde preparar tu CV hasta orientarte sobre matrículas y homologaciones.
+            </p>
         </div>
     </div>
+
+    <section>
+        <div class="card">
+            <h2>¿Qué dudas resolvemos?</h2>
+            <ul>
+                <li>Cómo armar un CV que pase filtros automáticos (ATS).</li>
+                <li>Qué información incluir sobre tu experiencia clínica.</li>
+                <li>Si necesitas matrícula u homologación en tu especialidad.</li>
+                <li>Preparación para entrevistas en hospitales y clínicas.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Con nuestra asesoría aprenderás:</h2>
+            <ul>
+                <li>A adaptar tu CV a hospitales y clínicas de forma profesional.</li>
+                <li>A destacar tus habilidades clínicas y experiencia.</li>
+                <li>Los pasos básicos para la matriculación y homologación.</li>
+                <li>A prepararte para entrevistas en España y otros países.</li>
+            </ul>
+        </div>
+
+        <div class="cta">
+            <button onclick="contactar()">Quiero mi asesoría inicial</button>
+        </div>
+    </section>
 
 
 
@@ -536,6 +645,11 @@
     </footer>
 
     <script>
+        function contactar() {
+            // Redirigir al formulario de contacto de la página principal
+            window.location.href = "index.html#contacto";
+        }
+
         function enviarFormulario(e) {
             e.preventDefault();
 
