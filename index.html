@@ -655,22 +655,46 @@
     </div>
   </footer>
 
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
   <script>
+    // Inicializar EmailJS
+    (function() {
+      emailjs.init("TU_USER_ID_AQUI"); // Reemplaza con tu User ID de EmailJS
+    })();
+
     function enviarFormulario(e) {
       e.preventDefault();
 
-      // Simular envio
       const button = e.target.querySelector('button');
       const originalText = button.textContent;
       button.textContent = 'Enviando...';
       button.disabled = true;
 
-      setTimeout(() => {
-        alert("¡Gracias! Hemos recibido tu solicitud. Nuestro equipo te contactará en las próximas 24 horas para realizar tu estudio de viabilidad gratuito.");
-        e.target.reset();
-        button.textContent = originalText;
-        button.disabled = false;
-      }, 1500);
+      // Obtener datos del formulario
+      const formData = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        telefono: document.getElementById('telefono').value,
+        caso: document.getElementById('caso').value,
+        fecha: new Date().toLocaleString('es-ES')
+      };
+
+      // Enviar email usando EmailJS
+      emailjs.send('TU_SERVICE_ID_AQUI', 'TU_TEMPLATE_ID_AQUI', formData)
+        .then(function(response) {
+          console.log('Email enviado exitosamente!', response.status, response.text);
+          alert("¡Gracias! Hemos recibido tu solicitud. Nuestro equipo te contactará en las próximas 24 horas para realizar tu estudio de viabilidad gratuito.");
+          e.target.reset();
+        }, function(error) {
+          console.error('Error al enviar email:', error);
+          alert("Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o contáctanos directamente por WhatsApp: +351 931 157 896");
+        })
+        .finally(function() {
+          button.textContent = originalText;
+          button.disabled = false;
+        });
     }
 
     // Smooth scrolling para links internos
