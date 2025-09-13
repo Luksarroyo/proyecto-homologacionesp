@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Consulta de Homologación</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #ffffff;">
+        <!-- Header -->
+        <div
+            style="background: linear-gradient(135deg, #daa520 0%, #b8860b 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+            <h1 style="color: white; margin: 0; font-size: 24px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                📋 Nueva Consulta de Homologación
+            </h1>
+        </div>
+
+        <!-- Contenido principal -->
+        <div style="background: #faf8f3; padding: 30px; border: 2px solid #e6d7c3;">
+            <div style="background: #ffffff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h3 style="color: #8b4513; margin-top: 0; border-bottom: 2px solid #daa520; padding-bottom: 10px;">
+                    📅 Información de la Consulta
+                </h3>
+                <p style="margin: 10px 0;"><strong>📅 Fecha:</strong> {{fecha}}</p>
+                <p style="margin: 10px 0;"><strong>🕒 Hora:</strong> {{fecha}}</p>
+            </div>
+
+            <!-- Datos del cliente -->
+            <div style="background: #ffffff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h3 style="color: #8b4513; margin-top: 0; border-bottom: 2px solid #daa520; padding-bottom: 10px;">
+                    👤 Datos del Cliente
+                </h3>
+                <div style="display: grid; gap: 10px;">
+                    <p style="margin: 5px 0; padding: 10px; background: #f5f1e8; border-radius: 5px;">
+                        <strong>👤 Nombre:</strong> {{nombre}}
+                    </p>
+                    <p style="margin: 5px 0; padding: 10px; background: #f5f1e8; border-radius: 5px;">
+                        <strong>📧 Email:</strong> {{email}}
+                    </p>
+                    <p style="margin: 5px 0; padding: 10px; background: #f5f1e8; border-radius: 5px;">
+                        <strong>📞 Teléfono:</strong> {{telefono}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Descripción del caso -->
+            <div style="background: #ffffff; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h3 style="color: #8b4513; margin-top: 0; border-bottom: 2px solid #daa520; padding-bottom: 10px;">
+                    📝 Descripción del Caso
+                </h3>
+                <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #daa520; border-radius: 5px;">
+                    <p style="margin: 0; white-space: pre-wrap; font-style: italic;">{{caso}}</p>
+                </div>
+            </div>
+
+            <!-- Acciones -->
+            <div style="background: #ffffff; padding: 20px; border-radius: 10px; text-align: center;">
+                <h3 style="color: #8b4513; margin-top: 0;">🚀 Acciones Recomendadas</h3>
+                <div style="display: grid; gap: 15px; margin-top: 20px;">
+                    <a href="mailto:{{email}}?subject=Respuesta a tu consulta de homologación"
+                        style="background: linear-gradient(135deg, #daa520 0%, #b8860b 100%); color: white; padding: 15px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+                        📧 Responder por Email
+                    </a>
+                    <a href="https://wa.me/351931157896?text=Hola, he recibido tu consulta sobre homologación. Te contacto para ayudarte."
+                        style="background: #25d366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+                        📱 Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="background: #8b4513; color: #f5f1e8; padding: 20px; text-align: center; border-radius: 0 0 10px 10px;">
+            <p style="margin: 0; font-size: 14px;">
+                📧 Este email fue enviado automáticamente desde el formulario de contacto de<br>
+                <strong>Tu Homologación en España</strong><br>
+                🌐 Sitio web | 📞 +351 931 157 896
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
