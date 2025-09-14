@@ -1,8 +1,3 @@
-// Inicializar EmailJS
-(function () {
-  emailjs.init("hG32FBizjMPyh0OnR"); // Public Key de EmailJS
-})();
-
 // Función principal para enviar formularios (con EmailJS para index.html)
 function enviarFormulario(e) {
   e.preventDefault();
@@ -14,6 +9,15 @@ function enviarFormulario(e) {
 
   // Verificar si estamos en la página principal (index.html) para usar EmailJS
   if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    // Verificar que EmailJS esté disponible
+    if (typeof emailjs === 'undefined') {
+      console.error("EmailJS no está cargado");
+      alert("Error: EmailJS no está disponible. Por favor, recarga la página.");
+      button.textContent = originalText;
+      button.disabled = false;
+      return;
+    }
+
     // Obtener datos del formulario
     const formData = {
       nombre: document.getElementById("nombre").value,
@@ -140,6 +144,14 @@ function initCarousel() {
 
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+  // Inicializar EmailJS si está disponible
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init("hG32FBizjMPyh0OnR"); // Public Key de EmailJS
+    console.log("EmailJS inicializado correctamente");
+  } else {
+    console.log("EmailJS no está disponible en esta página");
+  }
+
   // Esperar un poco más para asegurar que todo esté cargado
   setTimeout(() => {
     if (!initCarousel()) {
