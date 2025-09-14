@@ -1,0 +1,5 @@
+[33m8961f62[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;32mfeature-testimonials[m[33m)[m refactor: Simplificar sección de testimonios
+[33mfa5f359[m feat: Integrar widget de Google Maps para reseñas
+[33mfd66d4f[m feat: Agregar sección de testimonios con diseño responsivo
+[33m2cbfb9f[m[33m ([m[1;31morigin/main[m[33m)[m logo y card
+[33maf39482[m Refactorización completa: consolidación de CSS y JS en archivos únicos

@@ -410,6 +410,7 @@ section h2::after {
 
 .carousel-slide {
   min-width: 100%;
+  flex-shrink: 0;
   padding: 2rem;
   background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
   border: 2px solid #e6d7c3;

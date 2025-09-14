@@ -69,56 +69,65 @@ document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
 });
 
 // Funcionalidad de los carruseles (solo para guias-homologacion.html)
-const carousels = [
-  { currentSlide: 0, totalSlides: 2 }
-];
+let currentSlide = 0;
+const totalSlides = 2;
 
-function moveCarousel(carouselIndex, direction) {
-  const carousel = carousels[carouselIndex];
-  const track = document.querySelectorAll(".carousel-track")[carouselIndex];
-  const dots = document.querySelectorAll(".carousel-section")[carouselIndex].querySelectorAll(".carousel-dot");
-
-  if (!track || !dots.length) return; // Verificar que los elementos existen
-
-  carousel.currentSlide += direction;
-
-  if (carousel.currentSlide >= carousel.totalSlides) {
-    carousel.currentSlide = 0;
-  } else if (carousel.currentSlide < 0) {
-    carousel.currentSlide = carousel.totalSlides - 1;
+function moveCarousel(direction) {
+  const track = document.querySelector(".carousel-track");
+  const dots = document.querySelectorAll(".carousel-dot");
+  
+  if (!track || !dots.length) {
+    console.log("Elementos del carrusel no encontrados");
+    return;
   }
 
-  const translateX = -carousel.currentSlide * 100;
+  currentSlide += direction;
+
+  if (currentSlide >= totalSlides) {
+    currentSlide = 0;
+  } else if (currentSlide < 0) {
+    currentSlide = totalSlides - 1;
+  }
+
+  const translateX = -currentSlide * 100;
   track.style.transform = `translateX(${translateX}%)`;
 
   // Actualizar dots
   dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === carousel.currentSlide);
+    dot.classList.toggle("active", index === currentSlide);
   });
 }
 
-function goToSlide(carouselIndex, slideIndex) {
-  const carousel = carousels[carouselIndex];
-  const track = document.querySelectorAll(".carousel-track")[carouselIndex];
-  const dots = document.querySelectorAll(".carousel-section")[carouselIndex].querySelectorAll(".carousel-dot");
+function goToSlide(slideIndex) {
+  const track = document.querySelector(".carousel-track");
+  const dots = document.querySelectorAll(".carousel-dot");
+  
+  if (!track || !dots.length) {
+    console.log("Elementos del carrusel no encontrados");
+    return;
+  }
 
-  if (!track || !dots.length) return; // Verificar que los elementos existen
-
-  carousel.currentSlide = slideIndex;
-  const translateX = -carousel.currentSlide * 100;
+  currentSlide = slideIndex;
+  const translateX = -currentSlide * 100;
   track.style.transform = `translateX(${translateX}%)`;
 
   // Actualizar dots
   dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === carousel.currentSlide);
+    dot.classList.toggle("active", index === currentSlide);
   });
 }
 
 // Auto-play para los carruseles (solo si existen)
-if (document.querySelectorAll(".carousel-track").length > 0) {
-  setInterval(() => {
-    carousels.forEach((carousel, index) => {
-      moveCarousel(index, 1);
-    });
-  }, 8000);
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector(".carousel-track");
+  if (track) {
+    console.log("Carrusel inicializado correctamente");
+    
+    // Auto-play cada 8 segundos
+    setInterval(() => {
+      moveCarousel(1);
+    }, 8000);
+  } else {
+    console.log("No se encontró el carrusel");
+  }
+});
