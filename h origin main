@@ -1,0 +1,5 @@
+[33maf39482[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Refactorización completa: consolidación de CSS y JS en archivos únicos
+[33md40dead[m Refactor: Separar CSS y JavaScript en archivos externos
+[33m3c37f71[m[33m ([m[1;31morigin/main[m[33m)[m envio formulario
+[33m03faf93[m feat: Configurar EmailJS con datos reales
+[33m391142a[m feat: Configurar envío de emails con EmailJS
