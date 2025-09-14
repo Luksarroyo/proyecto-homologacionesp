@@ -71,63 +71,79 @@ document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
 // Funcionalidad de los carruseles (solo para guias-homologacion.html)
 let currentSlide = 0;
 const totalSlides = 2;
+let carouselInterval;
 
-function moveCarousel(direction) {
+function initCarousel() {
   const track = document.querySelector(".carousel-track");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
   const dots = document.querySelectorAll(".carousel-dot");
   
-  if (!track || !dots.length) {
+  if (!track || !prevBtn || !nextBtn || !dots.length) {
     console.log("Elementos del carrusel no encontrados");
-    return;
+    return false;
   }
 
-  currentSlide += direction;
+  console.log("Carrusel inicializado correctamente");
 
-  if (currentSlide >= totalSlides) {
-    currentSlide = 0;
-  } else if (currentSlide < 0) {
-    currentSlide = totalSlides - 1;
-  }
-
-  const translateX = -currentSlide * 100;
-  track.style.transform = `translateX(${translateX}%)`;
-
-  // Actualizar dots
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlide);
-  });
-}
-
-function goToSlide(slideIndex) {
-  const track = document.querySelector(".carousel-track");
-  const dots = document.querySelectorAll(".carousel-dot");
-  
-  if (!track || !dots.length) {
-    console.log("Elementos del carrusel no encontrados");
-    return;
-  }
-
-  currentSlide = slideIndex;
-  const translateX = -currentSlide * 100;
-  track.style.transform = `translateX(${translateX}%)`;
-
-  // Actualizar dots
-  dots.forEach((dot, index) => {
-    dot.classList.toggle("active", index === currentSlide);
-  });
-}
-
-// Auto-play para los carruseles (solo si existen)
-document.addEventListener('DOMContentLoaded', function() {
-  const track = document.querySelector(".carousel-track");
-  if (track) {
-    console.log("Carrusel inicializado correctamente");
+  // Función para actualizar el carrusel
+  function updateCarousel() {
+    const translateX = -currentSlide * 100;
+    track.style.transform = `translateX(${translateX}%)`;
     
-    // Auto-play cada 8 segundos
-    setInterval(() => {
-      moveCarousel(1);
-    }, 8000);
-  } else {
-    console.log("No se encontró el carrusel");
+    // Actualizar dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
   }
+
+  // Event listeners para botones
+  prevBtn.addEventListener('click', () => {
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+    updateCarousel();
+    resetAutoPlay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+    updateCarousel();
+    resetAutoPlay();
+  });
+
+  // Event listeners para dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoPlay();
+    });
+  });
+
+  // Auto-play
+  function startAutoPlay() {
+    carouselInterval = setInterval(() => {
+      currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+      updateCarousel();
+    }, 5000);
+  }
+
+  function resetAutoPlay() {
+    clearInterval(carouselInterval);
+    startAutoPlay();
+  }
+
+  // Iniciar auto-play
+  startAutoPlay();
+
+  return true;
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  // Esperar un poco más para asegurar que todo esté cargado
+  setTimeout(() => {
+    if (!initCarousel()) {
+      console.log("Error al inicializar el carrusel");
+    }
+  }, 100);
 });
