@@ -74,7 +74,7 @@ document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
 
 // Funcionalidad de los carruseles (solo para guias-homologacion.html)
 let currentSlide = 0;
-const totalSlides = 2;
+const totalSlides = 3;
 let carouselInterval;
 
 function initCarousel() {

@@ -31,14 +31,29 @@ header {
   position: relative;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: -1rem;
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.logo-link:hover {
+  background: rgba(218, 165, 32, 0.05);
+}
+
 .logo-container {
   display: flex;
   align-items: center;
   gap: 1rem;
   flex-shrink: 0;
-  margin-left: -1rem;
-  background: transparent;
-  padding: 0.5rem;
 }
 
 .logo {
@@ -802,7 +817,7 @@ footer {
     order: 2;
   }
 
-  .logo-container {
+  .logo-link {
     order: 1;
     margin-left: 0;
   }
@@ -831,7 +846,7 @@ footer {
     font-size: 1.3rem;
   }
 
-  .logo-container {
+  .logo-link {
     order: 1;
   }
 
