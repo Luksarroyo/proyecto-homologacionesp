@@ -937,6 +937,70 @@ footer {
   }
 }
 
+/* Media queries específicas para móviles - Carrusel de ebooks */
+@media (max-width: 480px) {
+  .carousel-slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .ebook-cover img {
+    width: 180px;
+    height: 240px;
+  }
+
+  .ebook-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .ebook-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ebook-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .carousel-dots {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .carousel-slide {
+    padding: 0.8rem;
+  }
+
+  .ebook-cover img {
+    width: 150px;
+    height: 200px;
+  }
+
+  .ebook-title {
+    font-size: 1.3rem;
+  }
+
+  .ebook-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .ebook-cta {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
 /* Google Maps Widget */
 .google-maps-widget {
   margin: 2rem 0;
