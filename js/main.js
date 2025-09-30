@@ -142,6 +142,71 @@ function initCarousel() {
   return true;
 }
 
+// Función profesional para descargar PDFs
+function descargarGuia(event) {
+  event.preventDefault();
+  
+  const button = event.target;
+  const originalText = button.textContent;
+  
+  // Mostrar estado de carga
+  button.textContent = "Descargando...";
+  button.disabled = true;
+  
+  // Crear enlace temporal
+  const link = document.createElement('a');
+  link.href = 'pdfs/guia-homologacion-gratuita.pdf';
+  link.download = 'Guia-Homologacion-Gratuita.pdf';
+  link.style.display = 'none';
+  
+  // Agregar al DOM, hacer clic y remover
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  
+  // Restaurar botón después de un delay
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.disabled = false;
+    
+    // Mostrar mensaje de éxito
+    showNotification('¡Guía descargada exitosamente!', 'success');
+  }, 2000);
+  
+  // Analytics (opcional)
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'download', {
+      'file_name': 'guia-homologacion-gratuita.pdf',
+      'file_type': 'pdf'
+    });
+  }
+}
+
+// Función para mostrar notificaciones
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${type === 'success' ? '#4CAF50' : '#2196F3'};
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
+
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
   // Inicializar EmailJS si está disponible

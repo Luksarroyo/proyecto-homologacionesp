@@ -1041,3 +1041,21 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* Notificaciones */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
