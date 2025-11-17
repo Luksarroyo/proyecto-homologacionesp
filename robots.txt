@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pdfs/
+
+Sitemap: https://tuhomologacion.es/sitemap.xml
+
