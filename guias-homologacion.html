@@ -2,10 +2,24 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Guías de Homologación de títulos en España. Ebooks con información, tips y consejos prácticos." />
+        content="Guías de Homologación de títulos en España. Ebooks con información, tips y consejos prácticos.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://tuhomologacion.es/guias-homologacion.html">
+    <meta property="og:title" content="Guías de Homologación - Tu Homologación en España">
+    <meta property="og:description"
+        content="Descubre ebooks y recursos digitales para cada etapa del proceso de homologación de títulos en España.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tuhomologacion.es/guias-homologacion.html">
+    <meta property="og:image" content="https://tuhomologacion.es/img/guiaGratuita.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guías de Homologación - Tu Homologación en España">
+    <meta name="twitter:description"
+        content="Ebooks con consejos prácticos, plantillas y tips para homologar tu título en España.">
+    <meta name="twitter:image" content="https://tuhomologacion.es/img/guiaGratuita.jpg">
     <title>Guías de Homologación - Tu Homologación en España</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -16,80 +30,99 @@
         <div class="header-container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="img/logo.jpg" alt="Tu Homologación" class="logo"
+                    <img src="img/logo.jpg" alt="Tu Homologación" class="logo" loading="lazy"
                         onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;logo-fallback&quot;>Tu Homologación</span>')">
                 </a>
             </div>
             <span class="brand-name">Tu Homologación en España</span>
-            <nav>
+            <nav aria-label="Menú principal">
                 <a href="index.html#servicios">Servicios</a>
                 <a href="index.html#contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Guías de Homologación</h1>
-            <p>Ebooks con información, tips y consejos prácticos para tu proceso de homologación</p>
-        </div>
-    </div>
-
-    <!-- Carruseles de Ebooks -->
-    <div class="ebook-carousels">
-        <!-- Primer Carrusel: Guía Básica -->
-        <div class="carousel-section">
-            <h2>Obtén tu Guía</h2>
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <div class="ebook-cover">
-                            <img src="img/guiaGratuita.jpg" alt="Guía para Comenzar con mi Homologación en España">
-                            <div class="ebook-badge">Gratis</div>
-                        </div>
-                        <div class="ebook-info">
-                            <h3 class="ebook-title">Guía para Iniciar tu Homologación</h3>
-                            <p class="ebook-subtitle">Información necesaria para iniciar tu sueño profesional</p>
-                            <a href="#" class="ebook-cta" onclick="descargarGuia(event)">Obtener Guía</a>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="ebook-cover">
-                            <img src="img/guiaradiologo.jpg" alt="Guía para Radiólogos">
-                            <div class="ebook-badge">Más Vendido</div>
-                        </div>
-                        <div class="ebook-info">
-                            <h3 class="ebook-title">Guía Completa para Radiólogos</h3>
-                            <p class="ebook-subtitle">La guía práctica para homologar tu título en España</p>
-                            <a href="https://tuhomologaciones.hotmart.host/guia-radiologia" class="ebook-cta"
-                                target="_blank" rel="noopener noreferrer">Comprar Guía</a>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="ebook-cover">
-                            <img src="img/logo.jpg" alt="Guía para Enfermeros">
-                            <div class="ebook-badge">Próximamente</div>
-                        </div>
-                        <div class="ebook-info">
-                            <h3 class="ebook-title">Guía Completa para Enfermeros</h3>
-                            <p class="ebook-subtitle">Todo lo que necesitas para dar el salto profesional</p>
-                            <a href="#" class="ebook-cta">Próximamente a la venta</a>
-                        </div>
-                    </div>
-
-                </div>
-                <button class="carousel-nav carousel-prev" id="prevBtn">‹</button>
-                <button class="carousel-nav carousel-next" id="nextBtn">›</button>
-                <div class="carousel-dots">
-                    <span class="carousel-dot active" data-slide="0"></span>
-                    <span class="carousel-dot" data-slide="1"></span>
-                    <span class="carousel-dot" data-slide="2"></span>
-                </div>
+    <main>
+        <section class="hero" id="guias-homologacion">
+            <div class="hero-content">
+                <h1>Guías de Homologación</h1>
+                <p>Ebooks con información, tips y consejos prácticos para tu proceso de homologación</p>
             </div>
-        </div>
+        </section>
 
+        <!-- Catálogo de guías -->
+        <section class="guides-section" id="catalogo-guias">
+            <div class="guides-header">
+                <h2>Obtén tu Guía</h2>
+                <p>Explora nuestros recursos digitales para cada etapa del proceso. Nuevas guías se irán sumando a este
+                    catálogo para acompañarte en tu homologación.</p>
+            </div>
 
-    </div>
+            <div class="guides-grid">
+                <article class="guide-card">
+                    <div class="ebook-cover">
+                        <img src="img/guiaGratuita.jpg" alt="Guía para Comenzar con mi Homologación en España"
+                            loading="lazy">
+                        <span class="ebook-badge">Gratis</span>
+                    </div>
+                    <div class="guide-card-body">
+                        <h3 class="ebook-title">Guía para Iniciar tu Homologación</h3>
+                        <p class="ebook-subtitle">Información necesaria para iniciar tu sueño profesional</p>
+                    </div>
+                    <div class="guide-card-footer">
+                        <a href="pdfs/guia-homologacion-gratuita.pdf" class="ebook-cta"
+                            onclick="descargarGuia(event)">Obtener Guía</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <div class="ebook-cover">
+                        <img src="img/guiaradiologo.jpg" alt="Guía para Radiólogos" loading="lazy">
+                        <span class="ebook-badge">Más Vendido</span>
+                    </div>
+                    <div class="guide-card-body">
+                        <h3 class="ebook-title">Guía Completa para homologar tu título de Radiólogo en España</h3>
+                        <p class="ebook-subtitle">Plan paso a paso, checklist y documentación clave para tu homologación
+                        </p>
+                    </div>
+                    <div class="guide-card-footer">
+                        <a href="https://tuhomologaciones.hotmart.host/guia-radiologia" class="ebook-cta"
+                            target="_blank" rel="noopener noreferrer">Comprar Guía</a>
+                    </div>
+                </article>
+                <article class="guide-card">
+                    <div class="ebook-cover">
+                        <img src="img/guiaradiologo2.jpeg" alt="Guía avanzada para Radiólogos" loading="lazy">
+                        <span class="ebook-badge">Nuevo</span>
+                    </div>
+                    <div class="guide-card-body">
+                        <h3 class="ebook-title">Lo que pasa después de homologar tu título de Radiólogo en España</h3>
+                        <p class="ebook-subtitle">Actualiza tu práctica profesional post homologación con consejos
+                            reales</p>
+                    </div>
+                    <div class="guide-card-footer">
+                        <a href="https://tuhomologaciones.hotmart.host/lo-que-pasa-despues-de-homologar-tu-titulo-de-tecnico-en-imagen-para-el-diagnostico-y-medicina-nuclear-en-espana-b5513b0c-4234-411d-b6f4-35593c815860"
+                            class="ebook-cta" target="_blank" rel="noopener noreferrer">Comprar Guía</a>
+                    </div>
+                </article>
+
+                <article class="guide-card">
+                    <div class="ebook-cover">
+                        <img src="img/logo.jpg" alt="Guía para Enfermeros" loading="lazy">
+                        <span class="ebook-badge upcoming">Próximamente</span>
+                    </div>
+                    <div class="guide-card-body">
+                        <h3 class="ebook-title">Guía Completa para Enfermeros</h3>
+                        <p class="ebook-subtitle">Checklist, documentación y estrategias para dar el salto profesional
+                        </p>
+                    </div>
+                    <div class="guide-card-footer">
+                        <span class="ebook-cta disabled">Próximamente a la venta</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -149,6 +182,88 @@
         </div>
     </footer>
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "name": "Tu Homologación en España",
+                    "url": "https://tuhomologacion.es",
+                    "logo": "https://tuhomologacion.es/img/logo.jpg",
+                    "sameAs": [
+                        "https://www.facebook.com/share/1ARZEFHCr2/?mibextid=wwXIfr",
+                        "https://www.instagram.com/tuhomologacionesp?igsh=eWxraTZ1MXIxeHVw",
+                        "https://www.tiktok.com/@tuhomologacionesp?fbclid=IwQ0xDSwMPA5pleHRuA2FlbQIxMAABHorNQi-4sPByryj2oeOP3YierkqWIoEJChQtb4fH8wMOlVGjXMxlOma2V7Ch_aem_I4UxAIskx1ZTLhLIqvb7YA"
+                    ],
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+351931157896",
+                        "contactType": "customer service",
+                        "areaServed": "ES"
+                    }
+                },
+                {
+                    "@type": "ItemList",
+                    "name": "Catálogo de guías de homologación",
+                    "itemListElement": [
+                        {
+                            "@type": "Product",
+                            "position": 1,
+                            "name": "Guía para Iniciar tu Homologación",
+                            "description": "Ebook gratuito con pasos iniciales, tips y recursos para arrancar tu homologación en España.",
+                            "image": "https://tuhomologacion.es/img/guiaGratuita.jpg",
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "0",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock",
+                                "url": "https://tuhomologacion.es/pdfs/guia-homologacion-gratuita.pdf"
+                            }
+                        },
+                        {
+                            "@type": "Product",
+                            "position": 2,
+                            "name": "Guía Completa para homologar tu título de Radiólogo en España",
+                            "description": "Plan paso a paso y documentación necesaria para homologar tu título sanitario.",
+                            "image": "https://tuhomologacion.es/img/guiaradiologo.jpg",
+                            "offers": {
+                                "@type": "Offer",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock",
+                                "url": "https://tuhomologaciones.hotmart.host/guia-radiologia"
+                            }
+                        },
+                        {
+                            "@type": "Product",
+                            "position": 3,
+                            "name": "Lo que pasa después de homologar tu título de Radiólogo en España",
+                            "description": "Consejos prácticos y checklist para tu etapa profesional post homologación.",
+                            "image": "https://tuhomologacion.es/img/guiaradiologo2.jpeg",
+                            "offers": {
+                                "@type": "Offer",
+                                "priceCurrency": "EUR",
+                                "availability": "https://schema.org/InStock",
+                                "url": "https://tuhomologaciones.hotmart.host/lo-que-pasa-despues-de-homologar-tu-titulo-de-tecnico-en-imagen-para-el-diagnostico-y-medicina-nuclear-en-espana-b5513b0c-4234-411d-b6f4-35593c815860"
+                            }
+                        },
+                        {
+                            "@type": "Product",
+                            "position": 4,
+                            "name": "Guía Completa para Enfermeros",
+                            "description": "Checklist y estrategias para la homologación de enfermería. Disponible próximamente.",
+                            "image": "https://tuhomologacion.es/img/logo.jpg",
+                            "offers": {
+                                "@type": "Offer",
+                                "availability": "https://schema.org/PreOrder",
+                                "url": "https://tuhomologacion.es/guias-homologacion.html"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    </script>
     <script src="js/main.js"></script>
 </body>
 

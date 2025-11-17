@@ -72,76 +72,6 @@ document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
   });
 });
 
-// Funcionalidad de los carruseles (solo para guias-homologacion.html)
-let currentSlide = 0;
-const totalSlides = 3;
-let carouselInterval;
-
-function initCarousel() {
-  const track = document.querySelector(".carousel-track");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const dots = document.querySelectorAll(".carousel-dot");
-  
-  if (!track || !prevBtn || !nextBtn || !dots.length) {
-    console.log("Elementos del carrusel no encontrados");
-    return false;
-  }
-
-  console.log("Carrusel inicializado correctamente");
-
-  // Función para actualizar el carrusel
-  function updateCarousel() {
-    const translateX = -currentSlide * 100;
-    track.style.transform = `translateX(${translateX}%)`;
-    
-    // Actualizar dots
-    dots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentSlide);
-    });
-  }
-
-  // Event listeners para botones
-  prevBtn.addEventListener('click', () => {
-    currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
-    updateCarousel();
-    resetAutoPlay();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
-    updateCarousel();
-    resetAutoPlay();
-  });
-
-  // Event listeners para dots
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentSlide = index;
-      updateCarousel();
-      resetAutoPlay();
-    });
-  });
-
-  // Auto-play
-  function startAutoPlay() {
-    carouselInterval = setInterval(() => {
-      currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
-      updateCarousel();
-    }, 5000);
-  }
-
-  function resetAutoPlay() {
-    clearInterval(carouselInterval);
-    startAutoPlay();
-  }
-
-  // Iniciar auto-play
-  startAutoPlay();
-
-  return true;
-}
-
 // Función profesional para descargar PDFs
 function descargarGuia(event) {
   event.preventDefault();
@@ -217,10 +147,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("EmailJS no está disponible en esta página");
   }
 
-  // Esperar un poco más para asegurar que todo esté cargado
-  setTimeout(() => {
-    if (!initCarousel()) {
-      console.log("Error al inicializar el carrusel");
-    }
-  }, 100);
+  // No se requiere inicialización adicional en esta página
 });
